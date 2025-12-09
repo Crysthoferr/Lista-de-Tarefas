@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsivo.css">
     <link rel="shortcut icon" href="assets/imagens/Logo.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Lista de Tarefas</h1>
+    <header id="cabecalho">
+        <h1>Lista de Tarefas !</h1>
     </header>
     <main>
         <section id="input_tarefas">
@@ -18,11 +19,23 @@
         </section>
         <section id="container_tarefas">
             <ul id="lista_tarefas">
-                <li>Tarefa 1 (Exemplo)</li>
+                <li>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto dolore nam cum ullam, earum eum dolor animi nihil distinctio unde, officiis soluta cupiditate voluptatum repellendus corporis natus nemo qui optio. 
+                    <div id="btns">
+                        <button class="btn_conferir">
+                            <i class="fa-solid fa-check" style="color: #34ab29;"></i>
+                        </button>
+                        <button class="btn_remover">
+                            <i class="fa-solid fa-xmark" style="color: #de5151;"></i>
+                        </button>
+                    </div>
+                </li>
+                
             </ul>
         </section>
-        <footer id="rodape">Desenvolvido por Crysthofer. 2025</footer>
     </main>
+    <footer id="rodape">Desenvolvido por <a href="https://github.com/Crysthoferr" target="_blank">Crysthofer</a> - 2025</footer>
     <script src="script.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/c47cd9494c.js" crossorigin="anonymous"></script>
 </body>
 </html>
