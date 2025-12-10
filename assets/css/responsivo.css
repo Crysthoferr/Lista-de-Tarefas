@@ -1,6 +1,35 @@
 @charset "UTF-8";
 
-@media (max-width: 700px) {
+@media (max-width: 1328px) {
+
+    #cabecalho{
+        padding: 40px 0;
+    }
+    #input_tarefas{
+        min-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    #input_tarefas input{
+        width: 80%;
+        margin-top: 0;
+    }
+
+    #input_tarefas button{
+        width: 50%;
+        margin-top: 10px;
+    }
+    #container_tarefas{
+        min-width: 50%;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
 
     #cabecalho{
         padding: 40px 0;
@@ -20,7 +49,7 @@
     }
 
     #input_tarefas button{
-        width: 50%;
+        width: 30%;
         margin-top: 10px;
     }
     #container_tarefas{
@@ -28,3 +57,4 @@
         min-height: 200px;
     }
 }
+
