@@ -1,18 +1,17 @@
 const btnAddTarefa = document.getElementById("btn_add_tarefa")
 const inputTarefa = document.getElementById("tarefas")
 const listaTarefas = document.getElementById("lista_tarefas")
-const concluirTarefa = document.getElementsByClassName("btn_conferir")
-const deletarTarefa = document.getElementsByClassName("btn_remover")
+const modal = document.getElementById("modal")
+const btn_fecharModal = document.getElementById("btn_fecharModal")
 
 // Adiciona tarefa ao clicar no botão
 
 btnAddTarefa.addEventListener("click", (evento) => {
     evento.preventDefault()
     if(inputTarefa.value.trim() === "") {
-        alert("Por favor, insira uma tarefa válida.")
-        return
+        modal.showModal()
     } else {
-        const tarefas =  document.getElementById("tarefas").value
+        const tarefas =  inputTarefa.value
         const novaTarefa = document.createElement("li")
         const divBtns = document.createElement("div")
         const btnConcluido = document.createElement("button")
@@ -27,7 +26,7 @@ btnAddTarefa.addEventListener("click", (evento) => {
         iconeDeletar.classList.add("fa-solid", "fa-xmark")
         iconeConcluido.style = "color: #34ab29;"
         iconeDeletar.style = "color: #de5151;"
-        novaTarefa.innerText = tarefas
+        novaTarefa.textContent = tarefas
         btnConcluido.appendChild(iconeConcluido)
         btnDeletar.appendChild(iconeDeletar)
         divBtns.appendChild(btnConcluido)
@@ -36,6 +35,10 @@ btnAddTarefa.addEventListener("click", (evento) => {
         listaTarefas.appendChild(novaTarefa)
         inputTarefa.value = ""
     }
+})
+
+btn_fecharModal.addEventListener("click", () => {
+            modal.close()
 })
 
 listaTarefas.addEventListener("click", (evento) => {
