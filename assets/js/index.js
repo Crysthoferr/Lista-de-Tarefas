@@ -12,34 +12,36 @@ let lista = JSON.parse(localStorage.getItem("tarefas")) || []
 const renderizar = () => {
     listaTarefas.innerHTML = ""
     lista.forEach((tarefas, id) => {
-btnAddTarefa.addEventListener("click", (evento) => {
-    evento.preventDefault()
-    if(inputTarefa.value.trim() === "") {
-        modal.showModal()
-    } else {
-        const tarefas =  inputTarefa.value
-        const novaTarefa = document.createElement("li")
-        const divBtns = document.createElement("div")
-        const btnConcluido = document.createElement("button")
-        const btnDeletar = document.createElement("button")
-        const iconeConcluido = document.createElement("i")
-        const iconeDeletar = document.createElement("i")
-        novaTarefa.classList.add("tarefa_item")
-        divBtns.classList.add("btns")
-        btnConcluido.classList.add("btn_conferir")
-        btnDeletar.classList.add("btn_remover")
-        iconeConcluido.classList.add("fa-solid", "fa-check")
-        iconeDeletar.classList.add("fa-solid", "fa-xmark")
-        iconeConcluido.style = "color: #34ab29;"
-        iconeDeletar.style = "color: #de5151;"
-        novaTarefa.textContent = tarefas
-        btnConcluido.appendChild(iconeConcluido)
-        btnDeletar.appendChild(iconeDeletar)
-        divBtns.appendChild(btnConcluido)
-        divBtns.appendChild(btnDeletar)
-        novaTarefa.appendChild(divBtns)
-        listaTarefas.appendChild(novaTarefa)
-        novaTarefa.dataset.id = id
+        btnAddTarefa.addEventListener("click", (evento) => {
+            evento.preventDefault()
+            if(inputTarefa.value.trim() === "") {
+                modal.showModal()
+            } else {
+                const tarefas =  inputTarefa.value
+                const novaTarefa = document.createElement("li")
+                const divBtns = document.createElement("div")
+                const btnConcluido = document.createElement("button")
+                const btnDeletar = document.createElement("button")
+                const iconeConcluido = document.createElement("i")
+                const iconeDeletar = document.createElement("i")
+                novaTarefa.classList.add("tarefa_item")
+                divBtns.classList.add("btns")
+                btnConcluido.classList.add("btn_conferir")
+                btnDeletar.classList.add("btn_remover")
+                iconeConcluido.classList.add("fa-solid", "fa-check")
+                iconeDeletar.classList.add("fa-solid", "fa-xmark")
+                iconeConcluido.style = "color: #34ab29;"
+                iconeDeletar.style = "color: #de5151;"
+                novaTarefa.textContent = tarefas
+                btnConcluido.appendChild(iconeConcluido)
+                btnDeletar.appendChild(iconeDeletar)
+                divBtns.appendChild(btnConcluido)
+                divBtns.appendChild(btnDeletar)
+                novaTarefa.appendChild(divBtns)
+                listaTarefas.appendChild(novaTarefa)
+                novaTarefa.dataset.id = id
+            }
+        });
     });
 }
 
