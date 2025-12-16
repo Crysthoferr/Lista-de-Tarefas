@@ -39,8 +39,7 @@ const renderizar = () => {
 btnAddTarefa.addEventListener("click", (evento) => {
     evento.preventDefault()
     if(inputTarefa.value.trim() === "") {
-        alert("Por favor, insira uma tarefa válida.")
-        return
+        modal.showModal()
     } else {
         const tarefas =  document.getElementById("tarefas").value
         lista.push(tarefas)

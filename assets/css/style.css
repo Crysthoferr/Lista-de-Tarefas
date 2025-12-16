@@ -153,3 +153,37 @@ main{
     transition: .3s ease;
 }
 
+#modal {
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    background: var(--tarefa);
+    box-shadow: 2px 2px 5px #d8d8d8;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#btn_fecharModal{
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 76px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--fundo_secundario);
+    color: var(--text);
+}
+
+#btn_fecharModal:hover{
+    background-color: var(--fundo);
+    transition: 0.3s ease-in;
+}
+
+#modal::backdrop {
+    background: rgba(0, 0, 0, 0.5); /* escurecimento do overlay */
+    backdrop-filter: blur(3px);     /* opcional: deixar mais elegante */
+}
