@@ -4,8 +4,14 @@ const listaTarefas = document.getElementById("lista_tarefas")
 const modal = document.getElementById("modal")
 const btn_fecharModal = document.getElementById("btn_fecharModal")
 
-// Adiciona tarefa ao clicar no botão
+// localStorage.removeItem("tarefas")
+// Criação de lista no local storage
+let lista = JSON.parse(localStorage.getItem("tarefas")) || []
 
+// Função para renderizar tarefas
+const renderizar = () => {
+    listaTarefas.innerHTML = ""
+    lista.forEach((tarefas, id) => {
 btnAddTarefa.addEventListener("click", (evento) => {
     evento.preventDefault()
     if(inputTarefa.value.trim() === "") {
@@ -33,7 +39,21 @@ btnAddTarefa.addEventListener("click", (evento) => {
         divBtns.appendChild(btnDeletar)
         novaTarefa.appendChild(divBtns)
         listaTarefas.appendChild(novaTarefa)
+        novaTarefa.dataset.id = id
+    });
+}
+
+// Adiciona tarefa ao clicar no botão
+btnAddTarefa.addEventListener("click", (evento) => {
+    evento.preventDefault()
+    if(inputTarefa.value.trim() === "") {
+        modal.showModal()
+    } else {
+        const tarefas =  document.getElementById("tarefas").value
+        lista.push(tarefas)
+        localStorage.setItem("tarefas", JSON.stringify(lista))
         inputTarefa.value = ""
+        renderizar()
     }
 })
 
@@ -46,7 +66,10 @@ listaTarefas.addEventListener("click", (evento) => {
 
     if(elemento.closest(".btn_remover")){
         const li = elemento.closest("li")
-        li.remove()
+        const id = Number(li.dataset.id)
+        lista = lista.filter((item, indice) => id !== indice )
+        localStorage.setItem("tarefas", JSON.stringify(lista))
+        renderizar()
     }
 
     if(elemento.closest(".btn_conferir")){
@@ -54,3 +77,5 @@ listaTarefas.addEventListener("click", (evento) => {
         li.classList.toggle("concluida")
     }
 })
+
+renderizar()
