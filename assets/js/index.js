@@ -1,6 +1,8 @@
 const btnAddTarefa = document.getElementById("btn_add_tarefa")
 const inputTarefa = document.getElementById("tarefas")
 const listaTarefas = document.getElementById("lista_tarefas")
+const modal = document.getElementById("modal")
+const btn_fecharModal = document.getElementById("btn_fecharModal")
 
 // localStorage.removeItem("tarefas")
 // Criação de lista no local storage
@@ -10,6 +12,12 @@ let lista = JSON.parse(localStorage.getItem("tarefas")) || []
 const renderizar = () => {
     listaTarefas.innerHTML = ""
     lista.forEach((tarefas, id) => {
+btnAddTarefa.addEventListener("click", (evento) => {
+    evento.preventDefault()
+    if(inputTarefa.value.trim() === "") {
+        modal.showModal()
+    } else {
+        const tarefas =  inputTarefa.value
         const novaTarefa = document.createElement("li")
         const divBtns = document.createElement("div")
         const btnConcluido = document.createElement("button")
@@ -24,7 +32,7 @@ const renderizar = () => {
         iconeDeletar.classList.add("fa-solid", "fa-xmark")
         iconeConcluido.style = "color: #34ab29;"
         iconeDeletar.style = "color: #de5151;"
-        novaTarefa.innerText = tarefas
+        novaTarefa.textContent = tarefas
         btnConcluido.appendChild(iconeConcluido)
         btnDeletar.appendChild(iconeDeletar)
         divBtns.appendChild(btnConcluido)
@@ -47,6 +55,10 @@ btnAddTarefa.addEventListener("click", (evento) => {
         inputTarefa.value = ""
         renderizar()
     }
+})
+
+btn_fecharModal.addEventListener("click", () => {
+            modal.close()
 })
 
 listaTarefas.addEventListener("click", (evento) => {
