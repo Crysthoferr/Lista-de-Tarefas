@@ -49,6 +49,10 @@ btnAddTarefa.addEventListener("click", (evento) => {
     }
 })
 
+btn_fecharModal.addEventListener("click", () => {
+            modal.close()
+})
+
 listaTarefas.addEventListener("click", (evento) => {
     const elemento = evento.target
 
